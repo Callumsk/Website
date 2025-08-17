@@ -498,6 +498,80 @@ function handleFormSubmit(form) {
         
         sampleSubcontractors.push(newSubcontractor);
         showNotification('Subcontractor added successfully!', 'success');
+    } else if (form.closest('#editSubcontractorModal')) {
+        // Update existing subcontractor
+        const subId = parseInt(data.subId);
+        const subIndex = sampleSubcontractors.findIndex(s => s.id === subId);
+        
+        if (subIndex > -1) {
+            sampleSubcontractors[subIndex] = {
+                ...sampleSubcontractors[subIndex],
+                companyName: data.companyName,
+                contactPerson: data.contactPerson,
+                phone: data.phone,
+                email: data.email,
+                specializations: data.specializations || [],
+                certifications: data.certifications || [],
+                rating: parseFloat(data.rating),
+                status: data.status
+            };
+            
+            showNotification('Subcontractor updated successfully!', 'success');
+        }
+    } else if (form.closest('#createProjectModal')) {
+        // Create new project
+        const newProject = {
+            id: data.projectId,
+            customerId: data.customerId,
+            title: data.projectTitle,
+            workType: data.workType,
+            subcontractorId: data.subcontractorId,
+            startDate: data.startDate,
+            estimatedCompletion: data.estimatedCompletion,
+            budget: parseFloat(data.budget),
+            description: data.description,
+            status: 'Planning',
+            progress: 0,
+            createdDate: new Date().toISOString().split('T')[0]
+        };
+        
+        console.log('New project created:', newProject);
+        showNotification('Project created successfully!', 'success');
+    } else if (form.closest('#updateProjectModal')) {
+        // Update project progress
+        const projectId = data.projectId;
+        const progress = parseInt(data.progress);
+        const status = data.status;
+        const notes = data.progressNotes;
+        
+        console.log(`Project ${projectId} updated: ${progress}% complete, status: ${status}`);
+        showNotification('Project progress updated successfully!', 'success');
+    } else if (form.closest('#assignProjectModal')) {
+        // Assign project to subcontractor
+        const projectId = data.projectId;
+        const subcontractor = data.subcontractor;
+        const assignmentDate = data.assignmentDate;
+        const expectedStartDate = data.expectedStartDate;
+        const notes = data.assignmentNotes;
+        
+        console.log(`Project ${projectId} assigned to ${subcontractor}`);
+        showNotification('Project assigned successfully!', 'success');
+    } else if (form.closest('#addUserModal')) {
+        // Add new user
+        const newUser = {
+            id: Date.now(),
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            phone: data.phone,
+            role: data.role,
+            department: data.department,
+            permissions: data.permissions || [],
+            createdDate: new Date().toISOString().split('T')[0]
+        };
+        
+        console.log('New user created:', newUser);
+        showNotification('User added successfully!', 'success');
     }
 }
 
@@ -528,7 +602,11 @@ function setupAllButtonHandlers() {
             const card = button.closest('.subcontractor-card, .project-card');
             if (card) {
                 const title = card.querySelector('h3, h4')?.textContent;
-                showNotification(`Viewing details for: ${title}`, 'info');
+                if (card.classList.contains('subcontractor-card')) {
+                    viewSubcontractor(title);
+                } else if (card.classList.contains('project-card')) {
+                    viewProject(title);
+                }
             }
         }
         
@@ -537,7 +615,7 @@ function setupAllButtonHandlers() {
             const card = button.closest('.subcontractor-card');
             if (card) {
                 const companyName = card.querySelector('h3')?.textContent;
-                showNotification(`Assigning project to: ${companyName}`, 'info');
+                assignProjectToSubcontractor(companyName);
             }
         }
         
@@ -546,14 +624,13 @@ function setupAllButtonHandlers() {
             const card = button.closest('.project-card');
             if (card) {
                 const projectId = card.querySelector('h3')?.textContent;
-                showNotification(`Updating progress for: ${projectId}`, 'info');
+                updateProjectProgress(projectId);
             }
         }
         
         // Handle "Create Project" button
         if (buttonText === 'Create Project') {
-            showNotification('Opening project creation form...', 'info');
-            // In a real app, this would open a project creation modal
+            createNewProject();
         }
         
         // Handle "Export Report" button
@@ -563,14 +640,12 @@ function setupAllButtonHandlers() {
         
         // Handle "Add User" button
         if (buttonText === 'Add User') {
-            showNotification('Opening user creation form...', 'info');
-            // In a real app, this would open a user creation modal
+            openModal('addUserModal');
         }
         
         // Handle "Manage Permissions" button
         if (buttonText === 'Manage Permissions') {
-            showNotification('Opening permissions management...', 'info');
-            // In a real app, this would open a permissions modal
+            openModal('managePermissionsModal');
         }
     });
     
@@ -590,9 +665,17 @@ function setupAllButtonHandlers() {
             const leadName = leadItem.querySelector('h4')?.textContent;
             
             if (button.querySelector('.fa-eye')) {
-                showNotification(`Viewing lead: ${leadName}`, 'info');
+                // Find the lead by name and view it
+                const lead = sampleLeads.find(l => `${l.firstName} ${l.lastName}` === leadName);
+                if (lead) {
+                    viewLead(lead.id);
+                }
             } else if (button.querySelector('.fa-edit')) {
-                showNotification(`Editing lead: ${leadName}`, 'info');
+                // Find the lead by name and edit it
+                const lead = sampleLeads.find(l => `${l.firstName} ${l.lastName}` === leadName);
+                if (lead) {
+                    editLead(lead.id);
+                }
             }
         }
     });
@@ -733,6 +816,171 @@ function logPerformance() {
 // Log performance on page load
 window.addEventListener('load', logPerformance);
 
+// Subcontractor management functions
+function viewSubcontractor(companyName) {
+    const subcontractor = sampleSubcontractors.find(s => s.companyName === companyName);
+    if (subcontractor) {
+        // Populate the view modal with subcontractor data
+        document.getElementById('viewSubCompanyName').textContent = subcontractor.companyName;
+        document.getElementById('viewSubContactPerson').textContent = subcontractor.contactPerson;
+        document.getElementById('viewSubPhone').textContent = subcontractor.phone;
+        document.getElementById('viewSubEmail').textContent = subcontractor.email;
+        document.getElementById('viewSubRating').textContent = `${subcontractor.rating}/5`;
+        document.getElementById('viewSubActiveProjects').textContent = subcontractor.activeProjects;
+        document.getElementById('viewSubCompletedProjects').textContent = subcontractor.completedProjects;
+        document.getElementById('viewSubStatus').innerHTML = `<span class="status-badge ${subcontractor.status.toLowerCase()}">${subcontractor.status}</span>`;
+        
+        // Populate specializations
+        const specializationsContainer = document.getElementById('viewSubSpecializations');
+        specializationsContainer.innerHTML = '';
+        subcontractor.specializations.forEach(spec => {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = spec;
+            specializationsContainer.appendChild(tag);
+        });
+        
+        // Populate certifications
+        const certificationsContainer = document.getElementById('viewSubCertifications');
+        certificationsContainer.innerHTML = '';
+        subcontractor.certifications.forEach(cert => {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = cert;
+            certificationsContainer.appendChild(tag);
+        });
+        
+        // Store the current subcontractor ID for edit functionality
+        window.currentSubcontractorId = subcontractor.id;
+        
+        // Open the view modal
+        openModal('viewSubcontractorModal');
+    }
+}
+
+function editSubcontractor(subcontractorId) {
+    const subcontractor = sampleSubcontractors.find(s => s.id === subcontractorId);
+    if (subcontractor) {
+        // Populate the edit form with subcontractor data
+        document.getElementById('editSubId').value = subcontractor.id;
+        document.getElementById('editSubCompanyName').value = subcontractor.companyName;
+        document.getElementById('editSubContactPerson').value = subcontractor.contactPerson;
+        document.getElementById('editSubPhone').value = subcontractor.phone;
+        document.getElementById('editSubEmail').value = subcontractor.email;
+        document.getElementById('editSubRating').value = subcontractor.rating;
+        document.getElementById('editSubStatus').value = subcontractor.status;
+        
+        // Set checkboxes for specializations
+        const specCheckboxes = document.querySelectorAll('#editSubcontractorModal input[name="specializations"]');
+        specCheckboxes.forEach(checkbox => {
+            checkbox.checked = subcontractor.specializations.includes(checkbox.value);
+        });
+        
+        // Set checkboxes for certifications
+        const certCheckboxes = document.querySelectorAll('#editSubcontractorModal input[name="certifications"]');
+        certCheckboxes.forEach(checkbox => {
+            checkbox.checked = subcontractor.certifications.includes(checkbox.value);
+        });
+        
+        // Open the edit modal
+        openModal('editSubcontractorModal');
+    }
+}
+
+function editCurrentSubcontractor() {
+    // Close view modal and open edit modal for current subcontractor
+    closeModal('viewSubcontractorModal');
+    if (window.currentSubcontractorId) {
+        editSubcontractor(window.currentSubcontractorId);
+    }
+}
+
+// Project management functions
+function createNewProject() {
+    // Generate project ID
+    const projectId = `ECO4-PROJ-${String(Date.now()).slice(-6)}`;
+    document.getElementById('createProjectId').value = projectId;
+    
+    // Populate customer dropdown
+    const customerSelect = document.getElementById('createProjectCustomer');
+    customerSelect.innerHTML = '<option value="">Select Customer</option>';
+    sampleLeads.forEach(lead => {
+        const option = document.createElement('option');
+        option.value = lead.id;
+        option.textContent = `${lead.firstName} ${lead.lastName} - ${lead.address}`;
+        customerSelect.appendChild(option);
+    });
+    
+    // Populate subcontractor dropdown
+    const subcontractorSelect = document.getElementById('createProjectSubcontractor');
+    subcontractorSelect.innerHTML = '<option value="">Select Subcontractor</option>';
+    sampleSubcontractors.forEach(sub => {
+        const option = document.createElement('option');
+        option.value = sub.id;
+        option.textContent = sub.companyName;
+        subcontractorSelect.appendChild(option);
+    });
+    
+    // Set default dates
+    const today = new Date().toISOString().split('T')[0];
+    const nextMonth = new Date();
+    nextMonth.setMonth(nextMonth.getMonth() + 1);
+    const nextMonthStr = nextMonth.toISOString().split('T')[0];
+    
+    document.getElementById('createProjectStartDate').value = today;
+    document.getElementById('createProjectEstimatedCompletion').value = nextMonthStr;
+    
+    openModal('createProjectModal');
+}
+
+function updateProjectProgress(projectId) {
+    document.getElementById('updateProjectId').value = projectId;
+    document.getElementById('updateProjectIdDisplay').value = projectId;
+    document.getElementById('updateProjectUpdatedDate').value = new Date().toISOString().split('T')[0];
+    openModal('updateProjectModal');
+}
+
+function assignProjectToSubcontractor(companyName) {
+    document.getElementById('assignProjectSubcontractor').value = companyName;
+    document.getElementById('assignProjectDate').value = new Date().toISOString().split('T')[0];
+    
+    // Populate project dropdown with unassigned leads
+    const projectSelect = document.getElementById('assignProjectSelect');
+    projectSelect.innerHTML = '<option value="">Select Project to Assign</option>';
+    sampleLeads.filter(lead => lead.status === 'New' || lead.status === 'Pending Assessment').forEach(lead => {
+        const option = document.createElement('option');
+        option.value = lead.id;
+        option.textContent = `${lead.id} - ${lead.firstName} ${lead.lastName} (${lead.grantType})`;
+        projectSelect.appendChild(option);
+    });
+    
+    openModal('assignProjectModal');
+}
+
+function viewProject(projectId) {
+    showNotification(`Viewing project: ${projectId}`, 'info');
+    // In a real app, this would open a project details modal
+}
+
+// User management functions
+function savePermissions() {
+    const selectedUser = document.getElementById('permissionsUserSelect').value;
+    if (!selectedUser) {
+        showNotification('Please select a user first', 'error');
+        return;
+    }
+    
+    // Collect all checked permissions
+    const permissions = [];
+    document.querySelectorAll('#managePermissionsModal input[type="checkbox"]:checked').forEach(checkbox => {
+        permissions.push(checkbox.value);
+    });
+    
+    console.log(`Saving permissions for ${selectedUser}:`, permissions);
+    showNotification('Permissions saved successfully!', 'success');
+    closeModal('managePermissionsModal');
+}
+
 // Export functions to global scope for HTML onclick handlers
 window.openModal = openModal;
 window.closeModal = closeModal;
@@ -740,6 +988,13 @@ window.viewLead = viewLead;
 window.editLead = editLead;
 window.deleteLead = deleteLead;
 window.editCurrentLead = editCurrentLead;
+window.viewSubcontractor = viewSubcontractor;
+window.editSubcontractor = editSubcontractor;
+window.editCurrentSubcontractor = editCurrentSubcontractor;
+window.createNewProject = createNewProject;
+window.updateProjectProgress = updateProjectProgress;
+window.assignProjectToSubcontractor = assignProjectToSubcontractor;
+window.savePermissions = savePermissions;
 window.exportData = exportData;
 window.showNotification = showNotification;
 

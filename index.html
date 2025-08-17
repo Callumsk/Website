@@ -757,6 +757,430 @@
         </div>
     </div>
 
+    <!-- View Subcontractor Modal -->
+    <div id="viewSubcontractorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Subcontractor Details</h3>
+                <button class="modal-close" onclick="closeModal('viewSubcontractorModal')">&times;</button>
+            </div>
+            <div class="subcontractor-details-view">
+                <div class="detail-section">
+                    <h4>Company Information</h4>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">Company Name:</span>
+                            <span id="viewSubCompanyName"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Contact Person:</span>
+                            <span id="viewSubContactPerson"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Phone:</span>
+                            <span id="viewSubPhone"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Email:</span>
+                            <span id="viewSubEmail"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h4>Specializations</h4>
+                    <div id="viewSubSpecializations" class="tags-container"></div>
+                </div>
+                
+                <div class="detail-section">
+                    <h4>Certifications</h4>
+                    <div id="viewSubCertifications" class="tags-container"></div>
+                </div>
+                
+                <div class="detail-section">
+                    <h4>Performance</h4>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">Rating:</span>
+                            <span id="viewSubRating"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Active Projects:</span>
+                            <span id="viewSubActiveProjects"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Completed Projects:</span>
+                            <span id="viewSubCompletedProjects"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Status:</span>
+                            <span id="viewSubStatus"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('viewSubcontractorModal')">Close</button>
+                <button type="button" class="btn-primary" onclick="editCurrentSubcontractor()">Edit Subcontractor</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Subcontractor Modal -->
+    <div id="editSubcontractorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Subcontractor</h3>
+                <button class="modal-close" onclick="closeModal('editSubcontractorModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="editSubcontractorForm">
+                <input type="hidden" id="editSubId" name="subId">
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" name="companyName" id="editSubCompanyName" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <input type="text" name="contactPerson" id="editSubContactPerson" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" id="editSubPhone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" id="editSubEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Specializations</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="specializations" value="Solar Panels"> Solar Panels</label>
+                        <label><input type="checkbox" name="specializations" value="Insulation"> Insulation</label>
+                        <label><input type="checkbox" name="specializations" value="Heat Pumps"> Heat Pumps</label>
+                        <label><input type="checkbox" name="specializations" value="Boiler Replacement"> Boiler Replacement</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Certifications</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="certifications" value="MCS"> MCS</label>
+                        <label><input type="checkbox" name="certifications" value="TrustMark"> TrustMark</label>
+                        <label><input type="checkbox" name="certifications" value="Gas Safe"> Gas Safe</label>
+                        <label><input type="checkbox" name="certifications" value="PAS 2030"> PAS 2030</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <input type="number" name="rating" id="editSubRating" min="0" max="5" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" id="editSubStatus" required>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('editSubcontractorModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Subcontractor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Project Modal -->
+    <div id="createProjectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Project</h3>
+                <button class="modal-close" onclick="closeModal('createProjectModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="createProjectForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Project ID</label>
+                        <input type="text" name="projectId" id="createProjectId" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <select name="customerId" id="createProjectCustomer" required>
+                            <option value="">Select Customer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Project Title</label>
+                    <input type="text" name="projectTitle" id="createProjectTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Work Type</label>
+                    <select name="workType" id="createProjectWorkType" required>
+                        <option value="">Select Work Type</option>
+                        <option value="Solar Panels">Solar Panels</option>
+                        <option value="Insulation">Insulation</option>
+                        <option value="Heat Pump">Heat Pump</option>
+                        <option value="Combined Package">Combined Package</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Subcontractor</label>
+                        <select name="subcontractorId" id="createProjectSubcontractor" required>
+                            <option value="">Select Subcontractor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date" name="startDate" id="createProjectStartDate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Estimated Completion</label>
+                        <input type="date" name="estimatedCompletion" id="createProjectEstimatedCompletion" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget</label>
+                        <input type="number" name="budget" id="createProjectBudget" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Project Description</label>
+                    <textarea name="description" id="createProjectDescription" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('createProjectModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Project Progress Modal -->
+    <div id="updateProjectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update Project Progress</h3>
+                <button class="modal-close" onclick="closeModal('updateProjectModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="updateProjectForm">
+                <input type="hidden" id="updateProjectId" name="projectId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Project ID</label>
+                        <input type="text" id="updateProjectIdDisplay" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Status</label>
+                        <select name="status" id="updateProjectStatus" required>
+                            <option value="Planning">Planning</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="On Hold">On Hold</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Progress Percentage</label>
+                        <input type="number" name="progress" id="updateProjectProgress" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Updated Date</label>
+                        <input type="date" name="updatedDate" id="updateProjectUpdatedDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Progress Notes</label>
+                    <textarea name="progressNotes" id="updateProjectNotes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('updateProjectModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Progress</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Project Modal -->
+    <div id="assignProjectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Assign Project to Subcontractor</h3>
+                <button class="modal-close" onclick="closeModal('assignProjectModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="assignProjectForm">
+                <div class="form-group">
+                    <label>Subcontractor</label>
+                    <input type="text" id="assignProjectSubcontractor" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Select Project</label>
+                    <select name="projectId" id="assignProjectSelect" required>
+                        <option value="">Select Project to Assign</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Assignment Date</label>
+                        <input type="date" name="assignmentDate" id="assignProjectDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Expected Start Date</label>
+                        <input type="date" name="expectedStartDate" id="assignProjectExpectedStart" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Assignment Notes</label>
+                    <textarea name="assignmentNotes" id="assignProjectNotes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('assignProjectModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Assign Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="modal-close" onclick="closeModal('addUserModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="addUserForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select name="role" required>
+                            <option value="">Select Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Coordinator">Coordinator</option>
+                            <option value="Viewer">Viewer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select name="department" required>
+                            <option value="">Select Department</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Operations">Operations</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Support">Support</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Permissions</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="permissions" value="view_leads"> View Leads</label>
+                        <label><input type="checkbox" name="permissions" value="edit_leads"> Edit Leads</label>
+                        <label><input type="checkbox" name="permissions" value="delete_leads"> Delete Leads</label>
+                        <label><input type="checkbox" name="permissions" value="view_subcontractors"> View Subcontractors</label>
+                        <label><input type="checkbox" name="permissions" value="edit_subcontractors"> Edit Subcontractors</label>
+                        <label><input type="checkbox" name="permissions" value="view_reports"> View Reports</label>
+                        <label><input type="checkbox" name="permissions" value="manage_users"> Manage Users</label>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('addUserModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Manage Permissions Modal -->
+    <div id="managePermissionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Manage User Permissions</h3>
+                <button class="modal-close" onclick="closeModal('managePermissionsModal')">&times;</button>
+            </div>
+            <div class="permissions-content">
+                <div class="form-group">
+                    <label>Select User</label>
+                    <select id="permissionsUserSelect">
+                        <option value="">Select User</option>
+                        <option value="admin">Admin User</option>
+                        <option value="manager1">Sarah Johnson - Manager</option>
+                        <option value="coordinator1">Mike Wilson - Coordinator</option>
+                    </select>
+                </div>
+                <div class="permissions-grid">
+                    <div class="permission-section">
+                        <h4>Lead Management</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="lead_permissions" value="view_leads"> View Leads</label>
+                            <label><input type="checkbox" name="lead_permissions" value="create_leads"> Create Leads</label>
+                            <label><input type="checkbox" name="lead_permissions" value="edit_leads"> Edit Leads</label>
+                            <label><input type="checkbox" name="lead_permissions" value="delete_leads"> Delete Leads</label>
+                        </div>
+                    </div>
+                    <div class="permission-section">
+                        <h4>Subcontractor Management</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="sub_permissions" value="view_subcontractors"> View Subcontractors</label>
+                            <label><input type="checkbox" name="sub_permissions" value="create_subcontractors"> Create Subcontractors</label>
+                            <label><input type="checkbox" name="sub_permissions" value="edit_subcontractors"> Edit Subcontractors</label>
+                            <label><input type="checkbox" name="sub_permissions" value="delete_subcontractors"> Delete Subcontractors</label>
+                        </div>
+                    </div>
+                    <div class="permission-section">
+                        <h4>Project Management</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="project_permissions" value="view_projects"> View Projects</label>
+                            <label><input type="checkbox" name="project_permissions" value="create_projects"> Create Projects</label>
+                            <label><input type="checkbox" name="project_permissions" value="edit_projects"> Edit Projects</label>
+                            <label><input type="checkbox" name="project_permissions" value="delete_projects"> Delete Projects</label>
+                        </div>
+                    </div>
+                    <div class="permission-section">
+                        <h4>System Access</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="system_permissions" value="view_reports"> View Reports</label>
+                            <label><input type="checkbox" name="system_permissions" value="export_data"> Export Data</label>
+                            <label><input type="checkbox" name="system_permissions" value="manage_users"> Manage Users</label>
+                            <label><input type="checkbox" name="system_permissions" value="system_settings"> System Settings</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('managePermissionsModal')">Cancel</button>
+                    <button type="button" class="btn-primary" onclick="savePermissions()">Save Permissions</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
