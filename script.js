@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     populateLeadsTable();
     setupEventListeners();
     updateStats();
+    setupAllButtonHandlers();
 });
 
 // Navigation functionality
@@ -255,15 +256,52 @@ document.addEventListener('click', function(e) {
 function viewLead(leadId) {
     const lead = sampleLeads.find(l => l.id === leadId);
     if (lead) {
-        alert(`Viewing lead: ${lead.firstName} ${lead.lastName}\nStatus: ${lead.status}\nProperty: ${lead.address}`);
+        // Populate the view modal with lead data
+        document.getElementById('viewLeadId').textContent = lead.id;
+        document.getElementById('viewLeadName').textContent = `${lead.firstName} ${lead.lastName}`;
+        document.getElementById('viewLeadEmail').textContent = lead.email;
+        document.getElementById('viewLeadPhone').textContent = lead.phone;
+        document.getElementById('viewLeadAddress').textContent = lead.address;
+        document.getElementById('viewLeadPropertyType').textContent = lead.propertyType;
+        document.getElementById('viewLeadGrantType').textContent = lead.grantType;
+        document.getElementById('viewLeadStatus').innerHTML = `<span class="lead-status ${getStatusClass(lead.status)}">${lead.status}</span>`;
+        document.getElementById('viewLeadAssignedTo').textContent = lead.assignedTo;
+        document.getElementById('viewLeadCreatedDate').textContent = formatDate(lead.createdDate);
+        
+        // Store the current lead ID for edit functionality
+        window.currentLeadId = leadId;
+        
+        // Open the view modal
+        openModal('viewLeadModal');
     }
 }
 
 function editLead(leadId) {
     const lead = sampleLeads.find(l => l.id === leadId);
     if (lead) {
-        alert(`Editing lead: ${lead.firstName} ${lead.lastName}`);
-        // In a real application, this would open an edit modal
+        // Populate the edit form with lead data
+        document.getElementById('editLeadId').value = lead.id;
+        document.getElementById('editFirstName').value = lead.firstName;
+        document.getElementById('editLastName').value = lead.lastName;
+        document.getElementById('editEmail').value = lead.email;
+        document.getElementById('editPhone').value = lead.phone;
+        document.getElementById('editAddress').value = lead.address;
+        document.getElementById('editPropertyType').value = lead.propertyType;
+        document.getElementById('editGrantType').value = lead.grantType;
+        document.getElementById('editStatus').value = lead.status;
+        document.getElementById('editAssignedTo').value = lead.assignedTo;
+        document.getElementById('editNotes').value = lead.notes || '';
+        
+        // Open the edit modal
+        openModal('editLeadModal');
+    }
+}
+
+function editCurrentLead() {
+    // Close view modal and open edit modal for current lead
+    closeModal('viewLeadModal');
+    if (window.currentLeadId) {
+        editLead(window.currentLeadId);
     }
 }
 
@@ -274,7 +312,7 @@ function deleteLead(leadId) {
             sampleLeads.splice(index, 1);
             populateLeadsTable();
             updateStats();
-            alert('Lead deleted successfully');
+            showNotification('Lead deleted successfully', 'success');
         }
     }
 }
@@ -364,8 +402,27 @@ function setupFormHandling() {
 }
 
 function handleFormSubmit(form) {
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
+    const data = {};
+    
+    // Get all form inputs
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        if (input.type === 'checkbox') {
+            // Handle checkboxes - collect all checked values for arrays
+            if (input.name === 'specializations' || input.name === 'certifications') {
+                if (!data[input.name]) {
+                    data[input.name] = [];
+                }
+                if (input.checked) {
+                    data[input.name].push(input.value);
+                }
+            } else {
+                data[input.name || input.value] = input.checked;
+            }
+        } else {
+            data[input.name] = input.value;
+        }
+    });
     
     // In a real application, this would send data to a server
     console.log('Form submitted:', data);
@@ -377,7 +434,7 @@ function handleFormSubmit(form) {
     }
     
     // Show success message
-    alert('Data saved successfully!');
+    showNotification('Data saved successfully!', 'success');
     
     // Refresh the page or update the table
     if (form.closest('#addLeadModal')) {
@@ -399,7 +456,146 @@ function handleFormSubmit(form) {
         sampleLeads.unshift(newLead);
         populateLeadsTable();
         updateStats();
+    } else if (form.closest('#editLeadModal')) {
+        // Update existing lead
+        const leadId = data.leadId;
+        const leadIndex = sampleLeads.findIndex(l => l.id === leadId);
+        
+        if (leadIndex > -1) {
+            sampleLeads[leadIndex] = {
+                ...sampleLeads[leadIndex],
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                phone: data.phone,
+                address: data.address,
+                propertyType: data.propertyType,
+                grantType: data.grantType,
+                status: data.status,
+                assignedTo: data.assignedTo,
+                notes: data.notes
+            };
+            
+            populateLeadsTable();
+            updateStats();
+            showNotification('Lead updated successfully!', 'success');
+        }
+    } else if (form.closest('#addSubcontractorModal')) {
+        // Add new subcontractor to the array
+        const newSubcontractor = {
+            id: sampleSubcontractors.length + 1,
+            companyName: data.companyName || 'New Company',
+            contactPerson: data.contactPerson || 'New Contact',
+            phone: data.phone || '07700 900000',
+            email: data.email || 'new@company.com',
+            specializations: data.specializations || [],
+            certifications: data.certifications || [],
+            rating: 0,
+            activeProjects: 0,
+            completedProjects: 0,
+            status: 'Active'
+        };
+        
+        sampleSubcontractors.push(newSubcontractor);
+        showNotification('Subcontractor added successfully!', 'success');
     }
+}
+
+// Setup all button handlers
+function setupAllButtonHandlers() {
+    // Dashboard "View All" buttons
+    document.addEventListener('click', function(e) {
+        const button = e.target.closest('button');
+        if (!button) return;
+        
+        const buttonText = button.textContent.trim();
+        
+        // Handle "View All" buttons
+        if (buttonText === 'View All') {
+            const section = button.closest('.dashboard-card');
+            if (section) {
+                const cardTitle = section.querySelector('h3').textContent;
+                if (cardTitle.includes('Leads')) {
+                    document.querySelector('a[href="#leads"]').click();
+                } else if (cardTitle.includes('Subcontractor')) {
+                    document.querySelector('a[href="#subcontractors"]').click();
+                }
+            }
+        }
+        
+        // Handle "View Details" buttons
+        if (buttonText === 'View Details') {
+            const card = button.closest('.subcontractor-card, .project-card');
+            if (card) {
+                const title = card.querySelector('h3, h4')?.textContent;
+                showNotification(`Viewing details for: ${title}`, 'info');
+            }
+        }
+        
+        // Handle "Assign Project" buttons
+        if (buttonText === 'Assign Project') {
+            const card = button.closest('.subcontractor-card');
+            if (card) {
+                const companyName = card.querySelector('h3')?.textContent;
+                showNotification(`Assigning project to: ${companyName}`, 'info');
+            }
+        }
+        
+        // Handle "Update Progress" buttons
+        if (buttonText === 'Update Progress') {
+            const card = button.closest('.project-card');
+            if (card) {
+                const projectId = card.querySelector('h3')?.textContent;
+                showNotification(`Updating progress for: ${projectId}`, 'info');
+            }
+        }
+        
+        // Handle "Create Project" button
+        if (buttonText === 'Create Project') {
+            showNotification('Opening project creation form...', 'info');
+            // In a real app, this would open a project creation modal
+        }
+        
+        // Handle "Export Report" button
+        if (buttonText === 'Export Report') {
+            exportData();
+        }
+        
+        // Handle "Add User" button
+        if (buttonText === 'Add User') {
+            showNotification('Opening user creation form...', 'info');
+            // In a real app, this would open a user creation modal
+        }
+        
+        // Handle "Manage Permissions" button
+        if (buttonText === 'Manage Permissions') {
+            showNotification('Opening permissions management...', 'info');
+            // In a real app, this would open a permissions modal
+        }
+    });
+    
+    // Handle user menu click
+    const userMenu = document.querySelector('.user-menu');
+    if (userMenu) {
+        userMenu.addEventListener('click', function() {
+            showNotification('User menu clicked - would show dropdown in real app', 'info');
+        });
+    }
+    
+    // Handle recent lead action buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.lead-actions .btn-icon')) {
+            const button = e.target.closest('.btn-icon');
+            const leadItem = button.closest('.lead-item');
+            const leadName = leadItem.querySelector('h4')?.textContent;
+            
+            if (button.querySelector('.fa-eye')) {
+                showNotification(`Viewing lead: ${leadName}`, 'info');
+            } else if (button.querySelector('.fa-edit')) {
+                showNotification(`Editing lead: ${leadName}`, 'info');
+            }
+        }
+    });
 }
 
 // Setup all event listeners
@@ -407,35 +603,6 @@ function setupEventListeners() {
     setupSearch();
     setupFilters();
     setupFormHandling();
-    
-    // Add click event for user menu
-    const userMenu = document.querySelector('.user-menu');
-    if (userMenu) {
-        userMenu.addEventListener('click', function() {
-            alert('User menu clicked - would show dropdown in real app');
-        });
-    }
-    
-    // Add click events for action buttons
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.btn-secondary')) {
-            const button = e.target.closest('.btn-secondary');
-            const buttonText = button.textContent.trim();
-            
-            if (buttonText === 'View All') {
-                // Navigate to the corresponding section
-                const section = button.closest('.dashboard-card');
-                if (section) {
-                    const cardTitle = section.querySelector('h3').textContent;
-                    if (cardTitle.includes('Leads')) {
-                        document.querySelector('a[href="#leads"]').click();
-                    } else if (cardTitle.includes('Subcontractor')) {
-                        document.querySelector('a[href="#subcontractors"]').click();
-                    }
-                }
-            }
-        }
-    });
 }
 
 // Export functionality
@@ -455,6 +622,8 @@ function exportData() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    
+    showNotification('Data exported successfully!', 'success');
 }
 
 // Notification system
@@ -474,6 +643,8 @@ function showNotification(message, type = 'info') {
         font-weight: 500;
         z-index: 3000;
         animation: slideIn 0.3s ease;
+        max-width: 300px;
+        word-wrap: break-word;
     `;
     
     if (type === 'success') {
@@ -568,5 +739,7 @@ window.closeModal = closeModal;
 window.viewLead = viewLead;
 window.editLead = editLead;
 window.deleteLead = deleteLead;
+window.editCurrentLead = editCurrentLead;
 window.exportData = exportData;
 window.showNotification = showNotification;
+

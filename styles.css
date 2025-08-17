@@ -329,6 +329,11 @@ body {
     text-transform: uppercase;
 }
 
+.lead-status.new {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
 .lead-status.pending {
     background-color: #fef3c7;
     color: #d97706;
@@ -342,6 +347,16 @@ body {
 .lead-status.in-progress {
     background-color: #dbeafe;
     color: #2563eb;
+}
+
+.lead-status.completed {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.lead-status.rejected {
+    background-color: #fee2e2;
+    color: #dc2626;
 }
 
 .lead-actions {
@@ -948,6 +963,52 @@ body {
     gap: 0.75rem;
     justify-content: flex-end;
     margin-top: 1.5rem;
+}
+
+/* Lead Details View */
+.lead-details-view {
+    padding: 1.5rem;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.detail-section:last-child {
+    margin-bottom: 0;
+}
+
+.detail-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.detail-grid .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-grid .detail-item .label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.detail-grid .detail-item span:last-child {
+    font-size: 0.875rem;
+    color: #1e293b;
+    font-weight: 500;
 }
 
 /* Responsive Design */

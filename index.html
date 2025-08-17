@@ -494,52 +494,52 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" required>
+                        <input type="text" name="firstName" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" required>
+                        <input type="text" name="lastName" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" required>
+                        <input type="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="tel" required>
+                        <input type="tel" name="phone" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Property Address</label>
-                    <input type="text" required>
+                    <input type="text" name="address" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Property Type</label>
-                        <select required>
+                        <select name="propertyType" required>
                             <option value="">Select Property Type</option>
-                            <option value="flat">Flat</option>
-                            <option value="semi-detached">Semi-detached</option>
-                            <option value="detached">Detached</option>
-                            <option value="terraced">Terraced</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Semi-detached">Semi-detached</option>
+                            <option value="Detached">Detached</option>
+                            <option value="Terraced">Terraced</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Grant Type</label>
-                        <select required>
+                        <select name="grantType" required>
                             <option value="">Select Grant Type</option>
-                            <option value="solar">Solar Panels</option>
-                            <option value="insulation">Insulation</option>
-                            <option value="heat-pump">Heat Pump</option>
-                            <option value="combined">Combined Package</option>
+                            <option value="Solar Panels">Solar Panels</option>
+                            <option value="Insulation">Insulation</option>
+                            <option value="Heat Pump">Heat Pump</option>
+                            <option value="Combined Package">Combined Package</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Notes</label>
-                    <textarea rows="3"></textarea>
+                    <textarea name="notes" rows="3"></textarea>
                 </div>
                 <div class="modal-actions">
                     <button type="button" class="btn-secondary" onclick="closeModal('addLeadModal')">Cancel</button>
@@ -558,43 +558,200 @@
             <form class="modal-form">
                 <div class="form-group">
                     <label>Company Name</label>
-                    <input type="text" required>
+                    <input type="text" name="companyName" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Contact Person</label>
-                        <input type="text" required>
+                        <input type="text" name="contactPerson" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="tel" required>
+                        <input type="tel" name="phone" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" required>
+                    <input type="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label>Specializations</label>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" value="solar"> Solar Panels</label>
-                        <label><input type="checkbox" value="insulation"> Insulation</label>
-                        <label><input type="checkbox" value="heat-pump"> Heat Pumps</label>
-                        <label><input type="checkbox" value="boiler"> Boiler Replacement</label>
+                        <label><input type="checkbox" name="specializations" value="Solar Panels"> Solar Panels</label>
+                        <label><input type="checkbox" name="specializations" value="Insulation"> Insulation</label>
+                        <label><input type="checkbox" name="specializations" value="Heat Pumps"> Heat Pumps</label>
+                        <label><input type="checkbox" name="specializations" value="Boiler Replacement"> Boiler Replacement</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Certifications</label>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" value="mcs"> MCS</label>
-                        <label><input type="checkbox" value="trustmark"> TrustMark</label>
-                        <label><input type="checkbox" value="gas-safe"> Gas Safe</label>
-                        <label><input type="checkbox" value="pas2030"> PAS 2030</label>
+                        <label><input type="checkbox" name="certifications" value="MCS"> MCS</label>
+                        <label><input type="checkbox" name="certifications" value="TrustMark"> TrustMark</label>
+                        <label><input type="checkbox" name="certifications" value="Gas Safe"> Gas Safe</label>
+                        <label><input type="checkbox" name="certifications" value="PAS 2030"> PAS 2030</label>
                     </div>
                 </div>
                 <div class="modal-actions">
                     <button type="button" class="btn-secondary" onclick="closeModal('addSubcontractorModal')">Cancel</button>
                     <button type="submit" class="btn-primary">Add Subcontractor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Lead Modal -->
+    <div id="viewLeadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>View Lead Details</h3>
+                <button class="modal-close" onclick="closeModal('viewLeadModal')">&times;</button>
+            </div>
+            <div class="lead-details-view">
+                <div class="detail-section">
+                    <h4>Customer Information</h4>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">Lead ID:</span>
+                            <span id="viewLeadId"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Name:</span>
+                            <span id="viewLeadName"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Email:</span>
+                            <span id="viewLeadEmail"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Phone:</span>
+                            <span id="viewLeadPhone"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h4>Property Information</h4>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">Address:</span>
+                            <span id="viewLeadAddress"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Property Type:</span>
+                            <span id="viewLeadPropertyType"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Grant Type:</span>
+                            <span id="viewLeadGrantType"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h4>Status Information</h4>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="label">Status:</span>
+                            <span id="viewLeadStatus"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Assigned To:</span>
+                            <span id="viewLeadAssignedTo"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Created Date:</span>
+                            <span id="viewLeadCreatedDate"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('viewLeadModal')">Close</button>
+                <button type="button" class="btn-primary" onclick="editCurrentLead()">Edit Lead</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Lead Modal -->
+    <div id="editLeadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Lead</h3>
+                <button class="modal-close" onclick="closeModal('editLeadModal')">&times;</button>
+            </div>
+            <form class="modal-form" id="editLeadForm">
+                <input type="hidden" id="editLeadId" name="leadId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" id="editFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" id="editLastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" id="editPhone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Property Address</label>
+                    <input type="text" name="address" id="editAddress" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Property Type</label>
+                        <select name="propertyType" id="editPropertyType" required>
+                            <option value="">Select Property Type</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Semi-detached">Semi-detached</option>
+                            <option value="Detached">Detached</option>
+                            <option value="Terraced">Terraced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Grant Type</label>
+                        <select name="grantType" id="editGrantType" required>
+                            <option value="">Select Grant Type</option>
+                            <option value="Solar Panels">Solar Panels</option>
+                            <option value="Insulation">Insulation</option>
+                            <option value="Heat Pump">Heat Pump</option>
+                            <option value="Combined Package">Combined Package</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status" id="editStatus" required>
+                            <option value="New">New</option>
+                            <option value="Pending Assessment">Pending Assessment</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Work in Progress">Work in Progress</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Assigned To</label>
+                        <input type="text" name="assignedTo" id="editAssignedTo" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea name="notes" id="editNotes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('editLeadModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Lead</button>
                 </div>
             </form>
         </div>
