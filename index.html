@@ -1,53 +1,60 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
     <meta charset="UTF-8" />
-    
-    <title>Callums news website</title>
-    
-    
-    
-<meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" /></head>
+    <title>Callum's News & Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+</head>
 <body><div class="app-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2><i class="fas fa-leaf"></i> ECO4 CRM</h2>
+                <h2><i class="fas fa-newspaper"></i> Callum's News</h2>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item active">
-                    <a href="#dashboard" class="nav-link">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Dashboard</span>
+                    <a href="#home" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#leads" class="nav-link">
-                        <i class="fas fa-users"></i>
-                        <span>Grant Leads</span>
+                    <a href="#breaking" class="nav-link">
+                        <i class="fas fa-bolt"></i>
+                        <span>Breaking News</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#subcontractors" class="nav-link">
-                        <i class="fas fa-hard-hat"></i>
-                        <span>Subcontractors</span>
+                    <a href="#politics" class="nav-link">
+                        <i class="fas fa-landmark"></i>
+                        <span>Politics</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>Projects</span>
+                    <a href="#technology" class="nav-link">
+                        <i class="fas fa-microchip"></i>
+                        <span>Technology</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#reports" class="nav-link">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Reports</span>
+                    <a href="#sports" class="nav-link">
+                        <i class="fas fa-football-ball"></i>
+                        <span>Sports</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#settings" class="nav-link">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
+                    <a href="#lifestyle" class="nav-link">
+                        <i class="fas fa-heart"></i>
+                        <span>Lifestyle</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">
+                        <i class="fas fa-blog"></i>
+                        <span>Blog</span>
                     </a>
                 </li>
             </ul>
@@ -61,153 +68,165 @@
                     <button class="menu-toggle" id="menuToggle">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 id="pageTitle">Dashboard</h1>
+                    <h1 id="pageTitle">Home</h1>
                 </div>
                 <div class="header-right">
                     <div class="search-bar">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search leads, subcontractors..." />
+                        <input type="text" placeholder="Search news, articles..." />
                     </div>
                     <div class="user-menu">
                         <img src="https://via.placeholder.com/40" alt="User" class="user-avatar" />
-                        <span>Admin User</span>
+                        <span>Callum</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
             </header>
 
-            <!-- Dashboard Section -->
-            <section id="dashboard" class="content-section active">
-                <div class="dashboard-grid">
-                    <!-- Stats Cards -->
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="home-grid">
+                    <!-- Featured News -->
+                    <div class="featured-news">
+                        <div class="featured-article">
+                            <div class="article-image">
+                                <img src="https://via.placeholder.com/800x400" alt="Featured News" />
+                                <div class="article-category">Breaking News</div>
                             </div>
-                            <div class="stat-content">
-                                <h3>Total Leads</h3>
-                                <p class="stat-number">247</p>
-                                <span class="stat-change positive">+12% this month</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-hard-hat"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>Active Subcontractors</h3>
-                                <p class="stat-number">18</p>
-                                <span class="stat-change positive">+3 this month</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>Active Projects</h3>
-                                <p class="stat-number">89</p>
-                                <span class="stat-change positive">+8% this month</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-pound-sign"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>Total Grant Value</h3>
-                                <p class="stat-number">£2.4M</p>
-                                <span class="stat-change positive">+15% this month</span>
+                            <div class="article-content">
+                                <h2>Major Breakthrough in Renewable Energy Technology</h2>
+                                <p class="article-excerpt">Scientists have announced a revolutionary new solar panel technology that could increase efficiency by 40% while reducing costs by half. This breakthrough could accelerate the global transition to clean energy.</p>
+                                <div class="article-meta">
+                                    <span class="author">By Callum Smith</span>
+                                    <span class="date">2 hours ago</span>
+                                    <span class="read-time">5 min read</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Recent Activity -->
-                    <div class="dashboard-row">
-                        <div class="dashboard-card">
-                            <div class="card-header">
-                                <h3>Recent Leads</h3>
-                                <button class="btn-secondary">View All</button>
+                    <!-- News Grid -->
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://via.placeholder.com/300x200" alt="News" />
+                                <div class="news-category">Politics</div>
                             </div>
-                            <div class="recent-leads">
-                                <div class="lead-item">
-                                    <div class="lead-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="lead-info">
-                                        <h4>John Smith</h4>
-                                        <p>Property: 3-bed semi-detached</p>
-                                        <span class="lead-status pending">Pending Assessment</span>
-                                    </div>
-                                    <div class="lead-actions">
-                                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            <div class="news-content">
+                                <h3>New Climate Policy Announced by Government</h3>
+                                <p>The government has unveiled a comprehensive new climate policy aimed at achieving net-zero emissions by 2050.</p>
+                                <div class="news-meta">
+                                    <span class="author">By Sarah Johnson</span>
+                                    <span class="date">4 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://via.placeholder.com/300x200" alt="News" />
+                                <div class="news-category">Technology</div>
+                            </div>
+                            <div class="news-content">
+                                <h3>AI Breakthrough in Medical Diagnosis</h3>
+                                <p>New artificial intelligence system can detect diseases with 99% accuracy, potentially revolutionizing healthcare.</p>
+                                <div class="news-meta">
+                                    <span class="author">By Mike Wilson</span>
+                                    <span class="date">6 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://via.placeholder.com/300x200" alt="News" />
+                                <div class="news-category">Sports</div>
+                            </div>
+                            <div class="news-content">
+                                <h3>Championship Final Set for Next Week</h3>
+                                <p>Local team advances to the championship final after a thrilling semi-final victory.</p>
+                                <div class="news-meta">
+                                    <span class="author">By Emma Brown</span>
+                                    <span class="date">8 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img src="https://via.placeholder.com/300x200" alt="News" />
+                                <div class="news-category">Lifestyle</div>
+                            </div>
+                            <div class="news-content">
+                                <h3>New Health Trends for 2024</h3>
+                                <p>Experts reveal the top health and wellness trends that will dominate this year.</p>
+                                <div class="news-meta">
+                                    <span class="author">By David Taylor</span>
+                                    <span class="date">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="sidebar-content">
+                        <div class="sidebar-widget">
+                            <h3>Content Management</h3>
+                            <div class="content-management">
+                                <button class="btn-primary" onclick="openModal('addArticleModal')" style="width: 100%; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-plus"></i> New Article
+                                </button>
+                                <button class="btn-secondary" onclick="openModal('addBlogModal')" style="width: 100%; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-blog"></i> New Blog Post
+                                </button>
+                                <button class="btn-secondary" onclick="refreshAllContent()" style="width: 100%; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-sync"></i> Refresh Content
+                                </button>
+                                <button class="btn-secondary" onclick="exportContent()" style="width: 100%;">
+                                    <i class="fas fa-download"></i> Export Content
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h3>Trending Now</h3>
+                            <div class="trending-list">
+                                <div class="trending-item">
+                                    <span class="trending-number">1</span>
+                                    <div class="trending-content">
+                                        <h4>Climate Summit Results</h4>
+                                        <p>2.5k shares</p>
                                     </div>
                                 </div>
-                                <div class="lead-item">
-                                    <div class="lead-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="lead-info">
-                                        <h4>Sarah Johnson</h4>
-                                        <p>Property: 2-bed flat</p>
-                                        <span class="lead-status approved">Approved</span>
-                                    </div>
-                                    <div class="lead-actions">
-                                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                <div class="trending-item">
+                                    <span class="trending-number">2</span>
+                                    <div class="trending-content">
+                                        <h4>Tech Stock Surge</h4>
+                                        <p>1.8k shares</p>
                                     </div>
                                 </div>
-                                <div class="lead-item">
-                                    <div class="lead-avatar">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div class="lead-info">
-                                        <h4>Mike Wilson</h4>
-                                        <p>Property: 4-bed detached</p>
-                                        <span class="lead-status in-progress">Work in Progress</span>
-                                    </div>
-                                    <div class="lead-actions">
-                                        <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                <div class="trending-item">
+                                    <span class="trending-number">3</span>
+                                    <div class="trending-content">
+                                        <h4>Sports Championship</h4>
+                                        <p>1.2k shares</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="dashboard-card">
-                            <div class="card-header">
-                                <h3>Subcontractor Performance</h3>
-                                <button class="btn-secondary">View All</button>
-                            </div>
-                            <div class="subcontractor-stats">
-                                <div class="subcontractor-item">
-                                    <div class="subcontractor-info">
-                                        <h4>Green Energy Solutions</h4>
-                                        <p>Projects: 12 | Rating: 4.8/5</p>
-                                    </div>
-                                    <div class="performance-bar">
-                                        <div class="bar-fill" style="width: 85%"></div>
-                                    </div>
+                        <div class="sidebar-widget">
+                            <h3>Latest Blog Posts</h3>
+                            <div class="blog-list">
+                                <div class="blog-item">
+                                    <h4>My Thoughts on Modern Journalism</h4>
+                                    <p>Exploring the changing landscape of news media...</p>
+                                    <span class="blog-date">Yesterday</span>
                                 </div>
-                                <div class="subcontractor-item">
-                                    <div class="subcontractor-info">
-                                        <h4>Eco Install Ltd</h4>
-                                        <p>Projects: 8 | Rating: 4.6/5</p>
-                                    </div>
-                                    <div class="performance-bar">
-                                        <div class="bar-fill" style="width: 78%"></div>
-                                    </div>
-                                </div>
-                                <div class="subcontractor-item">
-                                    <div class="subcontractor-info">
-                                        <h4>Solar Systems UK</h4>
-                                        <p>Projects: 15 | Rating: 4.9/5</p>
-                                    </div>
-                                    <div class="performance-bar">
-                                        <div class="bar-fill" style="width: 92%"></div>
-                                    </div>
+                                <div class="blog-item">
+                                    <h4>Technology and Society</h4>
+                                    <p>How technology is shaping our daily lives...</p>
+                                    <span class="blog-date">3 days ago</span>
                                 </div>
                             </div>
                         </div>
@@ -215,265 +234,556 @@
                 </div>
             </section>
 
-            <!-- Leads Section -->
-            <section id="leads" class="content-section">
+            <!-- Breaking News Section -->
+            <section id="breaking" class="content-section">
                 <div class="section-header">
-                    <h2>Grant Leads Management</h2>
-                    <button class="btn-primary" onclick="openModal('addLeadModal')">
-                        <i class="fas fa-plus"></i> Add New Lead
+                    <h2>Breaking News</h2>
+                    <button class="btn-primary" onclick="openModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
                     </button>
                 </div>
                 
                 <div class="filters-bar">
                     <div class="filter-group">
-                        <label>Status:</label>
+                        <label>Category:</label>
                         <select class="filter-select">
-                            <option value="">All Statuses</option>
-                            <option value="new">New</option>
-                            <option value="pending">Pending Assessment</option>
-                            <option value="approved">Approved</option>
-                            <option value="in-progress">Work in Progress</option>
-                            <option value="completed">Completed</option>
-                            <option value="rejected">Rejected</option>
+                            <option value="">All Categories</option>
+                            <option value="politics">Politics</option>
+                            <option value="technology">Technology</option>
+                            <option value="sports">Sports</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="world">World News</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label>Property Type:</label>
+                        <label>Time Range:</label>
                         <select class="filter-select">
-                            <option value="">All Types</option>
-                            <option value="flat">Flat</option>
-                            <option value="semi-detached">Semi-detached</option>
-                            <option value="detached">Detached</option>
-                            <option value="terraced">Terraced</option>
+                            <option value="">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label>Date Range:</label>
-                        <input type="date" class="filter-input" />
-                    </div>
-                </div>
-
-                <div class="leads-table-container">
-                    <table class="leads-table">
-                        <thead>
-                            <tr>
-                                <th>Lead ID</th>
-                                <th>Customer Name</th>
-                                <th>Property Address</th>
-                                <th>Property Type</th>
-                                <th>Grant Type</th>
-                                <th>Status</th>
-                                <th>Assigned To</th>
-                                <th>Created Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leadsTableBody">
-                            <!-- Leads will be populated by JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Subcontractors Section -->
-            <section id="subcontractors" class="content-section">
-                <div class="section-header">
-                    <h2>Subcontractor Management</h2>
-                    <button class="btn-primary" onclick="openModal('addSubcontractorModal')">
-                        <i class="fas fa-plus"></i> Add Subcontractor
-                    </button>
-                </div>
-
-                <div class="subcontractors-grid">
-                    <div class="subcontractor-card">
-                        <div class="subcontractor-header">
-                            <img src="https://via.placeholder.com/60" alt="Company Logo" class="company-logo" />
-                            <div class="company-info">
-                                <h3>Green Energy Solutions</h3>
-                                <p>Specializing in Solar &amp; Heat Pumps</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>4.8/5</span>
-                                </div>
-                            </div>
-                            <div class="status-badge active">Active</div>
-                        </div>
-                        <div class="subcontractor-details">
-                            <div class="detail-item">
-                                <span class="label">Contact:</span>
-                                <span>John Green - 07700 900123</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Email:</span>
-                                <span>john@greenenergy.co.uk</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Projects:</span>
-                                <span>12 Active | 45 Completed</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Certifications:</span>
-                                <span>MCS, TrustMark, Gas Safe</span>
-                            </div>
-                        </div>
-                        <div class="subcontractor-actions">
-                            <button class="btn-secondary">View Details</button>
-                            <button class="btn-primary">Assign Project</button>
-                        </div>
-                    </div>
-
-                    <div class="subcontractor-card">
-                        <div class="subcontractor-header">
-                            <img src="https://via.placeholder.com/60" alt="Company Logo" class="company-logo" />
-                            <div class="company-info">
-                                <h3>Eco Install Ltd</h3>
-                                <p>Insulation &amp; Heating Specialists</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span>4.6/5</span>
-                                </div>
-                            </div>
-                            <div class="status-badge active">Active</div>
-                        </div>
-                        <div class="subcontractor-details">
-                            <div class="detail-item">
-                                <span class="label">Contact:</span>
-                                <span>Mike Eco - 07700 900456</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Email:</span>
-                                <span>mike@ecoinstall.co.uk</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Projects:</span>
-                                <span>8 Active | 32 Completed</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Certifications:</span>
-                                <span>TrustMark, PAS 2030</span>
-                            </div>
-                        </div>
-                        <div class="subcontractor-actions">
-                            <button class="btn-secondary">View Details</button>
-                            <button class="btn-primary">Assign Project</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="content-section">
-                <div class="section-header">
-                    <h2>Project Management</h2>
-                    <button class="btn-primary">
-                        <i class="fas fa-plus"></i> Create Project
-                    </button>
-                </div>
-
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Project #ECO4-2024-001</h3>
-                            <span class="project-status in-progress">In Progress</span>
-                        </div>
-                        <div class="project-details">
-                            <p><strong>Customer:</strong> John Smith</p>
-                            <p><strong>Address:</strong> 123 Green Street, London</p>
-                            <p><strong>Work Type:</strong> Solar Panels + Insulation</p>
-                            <p><strong>Subcontractor:</strong> Green Energy Solutions</p>
-                            <p><strong>Start Date:</strong> 15/08/2024</p>
-                            <p><strong>Estimated Completion:</strong> 30/08/2024</p>
-                        </div>
-                        <div class="project-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 65%"></div>
-                            </div>
-                            <span>65% Complete</span>
-                        </div>
-                        <div class="project-actions">
-                            <button class="btn-secondary">View Details</button>
-                            <button class="btn-primary">Update Progress</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Reports Section -->
-            <section id="reports" class="content-section">
-                <div class="section-header">
-                    <h2>Reports &amp; Analytics</h2>
-                    <div class="report-controls">
+                        <label>Sort By:</label>
                         <select class="filter-select">
-                            <option>Last 30 Days</option>
-                            <option>Last 3 Months</option>
-                            <option>Last 6 Months</option>
-                            <option>Last Year</option>
+                            <option value="latest">Latest First</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="trending">Trending</option>
                         </select>
-                        <button class="btn-secondary">Export Report</button>
                     </div>
                 </div>
 
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <h3>Lead Conversion Rate</h3>
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-pie"></i>
-                            <p>Chart will be displayed here</p>
+                <div class="breaking-news-grid">
+                    <div class="breaking-article">
+                        <div class="breaking-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Breaking News" />
+                            <div class="breaking-badge">BREAKING</div>
+                        </div>
+                        <div class="breaking-content">
+                            <h3>Emergency Summit Called After Major International Incident</h3>
+                            <p>World leaders are gathering for an emergency summit following a significant international development that has global implications.</p>
+                            <div class="breaking-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="time">Just now</span>
+                                <span class="views">1.2k views</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="report-card">
-                        <h3>Subcontractor Performance</h3>
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-bar"></i>
-                            <p>Chart will be displayed here</p>
+
+                    <div class="breaking-article">
+                        <div class="breaking-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Breaking News" />
+                            <div class="breaking-badge">LIVE</div>
+                        </div>
+                        <div class="breaking-content">
+                            <h3>Live Updates: Major Weather Event Approaches</h3>
+                            <p>Meteorologists are tracking a significant weather system that could impact millions of people across the region.</p>
+                            <div class="breaking-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="time">15 min ago</span>
+                                <span class="views">856 views</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="report-card">
-                        <h3>Grant Value Distribution</h3>
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                            <p>Chart will be displayed here</p>
+
+                    <div class="breaking-article">
+                        <div class="breaking-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Breaking News" />
+                            <div class="breaking-badge">EXCLUSIVE</div>
+                        </div>
+                        <div class="breaking-content">
+                            <h3>Exclusive: Major Corporate Merger Announced</h3>
+                            <p>Two industry giants have announced a historic merger that will reshape the business landscape.</p>
+                            <div class="breaking-meta">
+                                <span class="author">By Mike Wilson</span>
+                                <span class="time">1 hour ago</span>
+                                <span class="views">2.1k views</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Settings Section -->
-            <section id="settings" class="content-section">
+            <!-- Politics Section -->
+            <section id="politics" class="content-section">
                 <div class="section-header">
-                    <h2>System Settings</h2>
+                    <h2>Politics</h2>
+                    <button class="btn-primary" onclick="openModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
+                    </button>
+                </div>
+
+                <div class="politics-grid">
+                    <div class="politics-article">
+                        <div class="politics-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Politics News" />
+                            <div class="politics-category">Government</div>
+                        </div>
+                        <div class="politics-content">
+                            <h3>New Legislation Passes with Bipartisan Support</h3>
+                            <p>In a rare show of unity, lawmakers from both parties have come together to pass landmark legislation that addresses key social issues.</p>
+                            <div class="politics-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">3 hours ago</span>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                            <div class="politics-tags">
+                                <span class="tag">Legislation</span>
+                                <span class="tag">Bipartisan</span>
+                                <span class="tag">Social Policy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="politics-article">
+                        <div class="politics-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Politics News" />
+                            <div class="politics-category">Elections</div>
+                        </div>
+                        <div class="politics-content">
+                            <h3>Election Polls Show Tight Race in Key Districts</h3>
+                            <p>Latest polling data reveals a closely contested race in several swing districts that could determine the outcome of the upcoming election.</p>
+                            <div class="politics-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">6 hours ago</span>
+                                <span class="read-time">3 min read</span>
+                            </div>
+                            <div class="politics-tags">
+                                <span class="tag">Elections</span>
+                                <span class="tag">Polls</span>
+                                <span class="tag">Swing Districts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="politics-article">
+                        <div class="politics-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Politics News" />
+                            <div class="politics-category">International</div>
+                        </div>
+                        <div class="politics-content">
+                            <h3>Diplomatic Relations Strengthen with Key Ally</h3>
+                            <p>Recent diplomatic efforts have resulted in strengthened ties with a major international partner, opening new opportunities for cooperation.</p>
+                            <div class="politics-meta">
+                                <span class="author">By Mike Wilson</span>
+                                <span class="date">1 day ago</span>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                            <div class="politics-tags">
+                                <span class="tag">Diplomacy</span>
+                                <span class="tag">International</span>
+                                <span class="tag">Cooperation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="politics-article">
+                        <div class="politics-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Politics News" />
+                            <div class="politics-category">Policy</div>
+                        </div>
+                        <div class="politics-content">
+                            <h3>Economic Policy Changes Announced</h3>
+                            <p>The government has unveiled new economic policies aimed at stimulating growth and addressing inflation concerns.</p>
+                            <div class="politics-meta">
+                                <span class="author">By Emma Brown</span>
+                                <span class="date">2 days ago</span>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                            <div class="politics-tags">
+                                <span class="tag">Economy</span>
+                                <span class="tag">Policy</span>
+                                <span class="tag">Inflation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Section -->
+            <section id="technology" class="content-section">
+                <div class="section-header">
+                    <h2>Technology</h2>
+                    <button class="btn-primary" onclick="openModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
+                    </button>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-article">
+                        <div class="tech-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Tech News" />
+                            <div class="tech-category">AI & Machine Learning</div>
+                        </div>
+                        <div class="tech-content">
+                            <h3>Revolutionary AI Model Achieves Human-Level Performance</h3>
+                            <p>A new artificial intelligence model has demonstrated capabilities that match or exceed human performance in complex reasoning tasks, marking a significant milestone in AI development.</p>
+                            <div class="tech-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">4 hours ago</span>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tag">Artificial Intelligence</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Breakthrough</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-article">
+                        <div class="tech-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Tech News" />
+                            <div class="tech-category">Cybersecurity</div>
+                        </div>
+                        <div class="tech-content">
+                            <h3>New Security Protocol Prevents 99.9% of Cyber Attacks</h3>
+                            <p>Researchers have developed a revolutionary cybersecurity protocol that has successfully prevented nearly all attempted cyber attacks in recent testing.</p>
+                            <div class="tech-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">8 hours ago</span>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tag">Cybersecurity</span>
+                                <span class="tag">Security</span>
+                                <span class="tag">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-article">
+                        <div class="tech-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Tech News" />
+                            <div class="tech-category">Mobile Technology</div>
+                        </div>
+                        <div class="tech-content">
+                            <h3>Next-Generation Smartphone Features Unveiled</h3>
+                            <p>Major smartphone manufacturers have revealed their latest innovations, including foldable displays, advanced camera systems, and extended battery life.</p>
+                            <div class="tech-meta">
+                                <span class="author">By Mike Wilson</span>
+                                <span class="date">1 day ago</span>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tag">Smartphones</span>
+                                <span class="tag">Innovation</span>
+                                <span class="tag">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-article">
+                        <div class="tech-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Tech News" />
+                            <div class="tech-category">Space Technology</div>
+                        </div>
+                        <div class="tech-content">
+                            <h3>Private Space Company Achieves Historic Milestone</h3>
+                            <p>A private space exploration company has successfully completed its most ambitious mission yet, advancing the future of commercial space travel.</p>
+                            <div class="tech-meta">
+                                <span class="author">By Emma Brown</span>
+                                <span class="date">2 days ago</span>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                            <div class="tech-tags">
+                                <span class="tag">Space</span>
+                                <span class="tag">Innovation</span>
+                                <span class="tag">Commercial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sports Section -->
+            <section id="sports" class="content-section">
+                <div class="section-header">
+                    <h2>Sports</h2>
+                    <button class="btn-primary" onclick="openModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
+                    </button>
+                </div>
+
+                <div class="sports-grid">
+                    <div class="sports-article">
+                        <div class="sports-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Sports News" />
+                            <div class="sports-category">Football</div>
+                        </div>
+                        <div class="sports-content">
+                            <h3>Championship Final Ends in Dramatic Penalty Shootout</h3>
+                            <p>In an unforgettable match, the championship final went to penalties after a thrilling 2-2 draw, with the winning team securing victory in the final kick.</p>
+                            <div class="sports-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">2 hours ago</span>
+                                <span class="read-time">3 min read</span>
+                            </div>
+                            <div class="sports-score">
+                                <span class="team">Team A</span>
+                                <span class="score">2-2 (4-3)</span>
+                                <span class="team">Team B</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sports-article">
+                        <div class="sports-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Sports News" />
+                            <div class="sports-category">Basketball</div>
+                        </div>
+                        <div class="sports-content">
+                            <h3>Record-Breaking Performance in Playoff Game</h3>
+                            <p>A star player delivered a historic performance, setting multiple records in a crucial playoff game that will be remembered for years to come.</p>
+                            <div class="sports-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">5 hours ago</span>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                            <div class="sports-stats">
+                                <span class="stat">Points: 45</span>
+                                <span class="stat">Assists: 12</span>
+                                <span class="stat">Rebounds: 8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sports-article">
+                        <div class="sports-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Sports News" />
+                            <div class="sports-category">Tennis</div>
+                        </div>
+                        <div class="sports-content">
+                            <h3>Grand Slam Tournament Begins with Upsets</h3>
+                            <p>The opening day of the major tournament saw several seeded players eliminated in surprising upsets, setting the stage for an unpredictable competition.</p>
+                            <div class="sports-meta">
+                                <span class="author">By Mike Wilson</span>
+                                <span class="date">1 day ago</span>
+                                <span class="read-time">3 min read</span>
+                            </div>
+                            <div class="sports-results">
+                                <span class="result">Upset: #3 seed eliminated</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sports-article">
+                        <div class="sports-image">
+                            <img src="https://via.placeholder.com/400x250" alt="Sports News" />
+                            <div class="sports-category">Olympics</div>
+                        </div>
+                        <div class="sports-content">
+                            <h3>Olympic Games Preparation Reaches Final Stage</h3>
+                            <p>With just months to go, Olympic preparations are in their final phase, with athletes and organizers making final preparations for the world's biggest sporting event.</p>
+                            <div class="sports-meta">
+                                <span class="author">By Emma Brown</span>
+                                <span class="date">2 days ago</span>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                            <div class="sports-info">
+                                <span class="info">Days until opening: 120</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lifestyle Section -->
+            <section id="lifestyle" class="content-section">
+                <div class="section-header">
+                    <h2>Lifestyle</h2>
+                    <button class="btn-primary" onclick="openModal('addArticleModal')">
+                        <i class="fas fa-plus"></i> Add Article
+                    </button>
                 </div>
                 
-                <div class="settings-grid">
-                    <div class="settings-card">
-                        <h3>User Management</h3>
-                        <div class="setting-item">
-                            <label>Add New User</label>
-                            <button class="btn-secondary">Add User</button>
+                <div class="lifestyle-grid">
+                    <div class="lifestyle-article">
+                        <div class="lifestyle-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Lifestyle News" />
+                            <div class="lifestyle-category">Health & Wellness</div>
                         </div>
-                        <div class="setting-item">
-                            <label>User Permissions</label>
-                            <button class="btn-secondary">Manage Permissions</button>
+                        <div class="lifestyle-content">
+                            <h3>New Study Reveals Benefits of Morning Exercise</h3>
+                            <p>Research shows that exercising in the morning can boost energy levels, improve mood, and enhance productivity throughout the day.</p>
+                            <div class="lifestyle-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">6 hours ago</span>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                            <div class="lifestyle-tags">
+                                <span class="tag">Health</span>
+                                <span class="tag">Exercise</span>
+                                <span class="tag">Wellness</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="settings-card">
-                        <h3>System Configuration</h3>
-                        <div class="setting-item">
-                            <label>Email Notifications</label>
-                            <input type="checkbox" checked="" />
+
+                    <div class="lifestyle-article">
+                        <div class="lifestyle-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Lifestyle News" />
+                            <div class="lifestyle-category">Food & Dining</div>
                         </div>
-                        <div class="setting-item">
-                            <label>SMS Notifications</label>
-                            <input type="checkbox" />
+                        <div class="lifestyle-content">
+                            <h3>Trending Restaurant Opens in City Center</h3>
+                            <p>A highly anticipated new restaurant has opened its doors, offering innovative cuisine and a unique dining experience that's already generating buzz.</p>
+                            <div class="lifestyle-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">1 day ago</span>
+                                <span class="read-time">3 min read</span>
+                            </div>
+                            <div class="lifestyle-tags">
+                                <span class="tag">Food</span>
+                                <span class="tag">Restaurant</span>
+                                <span class="tag">Dining</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lifestyle-article">
+                        <div class="lifestyle-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Lifestyle News" />
+                            <div class="lifestyle-category">Travel</div>
+                        </div>
+                        <div class="lifestyle-content">
+                            <h3>Hidden Gem Destinations for 2024</h3>
+                            <p>Discover these lesser-known but stunning destinations that offer unique experiences without the crowds of popular tourist spots.</p>
+                            <div class="lifestyle-meta">
+                                <span class="author">By Mike Wilson</span>
+                                <span class="date">2 days ago</span>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                            <div class="lifestyle-tags">
+                                <span class="tag">Travel</span>
+                                <span class="tag">Destinations</span>
+                                <span class="tag">Adventure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lifestyle-article">
+                        <div class="lifestyle-image">
+                            <img src="https://via.placeholder.com/500x300" alt="Lifestyle News" />
+                            <div class="lifestyle-category">Fashion</div>
+                        </div>
+                        <div class="lifestyle-content">
+                            <h3>Spring Fashion Trends to Watch</h3>
+                            <p>Fashion experts reveal the top trends for the upcoming season, from bold colors to sustainable materials and vintage-inspired pieces.</p>
+                            <div class="lifestyle-meta">
+                                <span class="author">By Emma Brown</span>
+                                <span class="date">3 days ago</span>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                            <div class="lifestyle-tags">
+                                <span class="tag">Fashion</span>
+                                <span class="tag">Trends</span>
+                                <span class="tag">Style</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="content-section">
+                <div class="section-header">
+                    <h2>Blog</h2>
+                    <button class="btn-primary" onclick="openModal('addBlogModal')">
+                        <i class="fas fa-plus"></i> New Blog Post
+                    </button>
+                </div>
+                
+                <div class="blog-grid">
+                    <div class="blog-post">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Blog Post" />
+                            <div class="blog-category">Personal</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>My Journey into Digital Journalism</h3>
+                            <p>Reflecting on how the digital age has transformed journalism and the challenges and opportunities it presents for modern reporters and writers.</p>
+                            <div class="blog-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">Yesterday</span>
+                                <span class="read-time">8 min read</span>
+                            </div>
+                            <div class="blog-excerpt">
+                                <p>"The landscape of journalism has changed dramatically over the past decade. As someone who entered this field during this transformation, I've witnessed firsthand both the challenges and opportunities that digital media presents..."</p>
+                            </div>
+                            <div class="blog-actions">
+                                <button class="btn-secondary">Read More</button>
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-post">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Blog Post" />
+                            <div class="blog-category">Technology</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>The Future of News Consumption</h3>
+                            <p>Exploring how emerging technologies like AI and virtual reality might reshape how we consume and interact with news content.</p>
+                            <div class="blog-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">3 days ago</span>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                            <div class="blog-excerpt">
+                                <p>"As we stand at the intersection of traditional journalism and cutting-edge technology, it's fascinating to consider how news consumption might evolve in the coming years..."</p>
+                            </div>
+                            <div class="blog-actions">
+                                <button class="btn-secondary">Read More</button>
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-post">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/600x300" alt="Blog Post" />
+                            <div class="blog-category">Opinion</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Balancing Speed and Accuracy in News Reporting</h3>
+                            <p>A personal perspective on the constant tension between being first to report and ensuring accuracy in today's fast-paced media environment.</p>
+                            <div class="blog-meta">
+                                <span class="author">By Callum Smith</span>
+                                <span class="date">1 week ago</span>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                            <div class="blog-excerpt">
+                                <p>"In the age of social media and instant updates, journalists face an unprecedented challenge: how to balance the need for speed with the fundamental requirement of accuracy..."</p>
+                            </div>
+                            <div class="blog-actions">
+                                <button class="btn-secondary">Read More</button>
+                                <button class="btn-icon"><i class="fas fa-heart"></i></button>
+                                <button class="btn-icon"><i class="fas fa-share"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -482,701 +792,203 @@
     </div>
 
     <!-- Modals -->
-    <div id="addLeadModal" class="modal">
+    <div id="addArticleModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Add New Lead</h3>
-                <button class="modal-close" onclick="closeModal('addLeadModal')">×</button>
-            </div>
-            <form class="modal-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" required="" />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" required="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Property Address</label>
-                    <input type="text" name="address" required="" />
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Property Type</label>
-                        <select name="propertyType" required="">
-                            <option value="">Select Property Type</option>
-                            <option value="Flat">Flat</option>
-                            <option value="Semi-detached">Semi-detached</option>
-                            <option value="Detached">Detached</option>
-                            <option value="Terraced">Terraced</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Grant Type</label>
-                        <select name="grantType" required="">
-                            <option value="">Select Grant Type</option>
-                            <option value="Solar Panels">Solar Panels</option>
-                            <option value="Insulation">Insulation</option>
-                            <option value="Heat Pump">Heat Pump</option>
-                            <option value="Combined Package">Combined Package</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Notes</label>
-                    <textarea name="notes" rows="3"></textarea>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('addLeadModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Add Lead</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="addSubcontractorModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add New Subcontractor</h3>
-                <button class="modal-close" onclick="closeModal('addSubcontractorModal')">×</button>
+                <h3>Add New Article</h3>
+                <button class="modal-close" onclick="closeModal('addArticleModal')">×</button>
             </div>
             <form class="modal-form">
                 <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" name="companyName" required="" />
+                    <label>Article Title</label>
+                    <input type="text" name="title" required="" />
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Contact Person</label>
-                        <input type="text" name="contactPerson" required="" />
+                        <label>Category</label>
+                        <select name="category" required="">
+                            <option value="">Select Category</option>
+                            <option value="Breaking News">Breaking News</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="World News">World News</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" required="" />
+                        <label>Author</label>
+                        <input type="text" name="author" value="Callum Smith" required="" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required="" />
+                    <label>Article Excerpt</label>
+                    <textarea name="excerpt" rows="3" placeholder="Brief summary of the article..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Specializations</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="specializations" value="Solar Panels" /> Solar Panels</label>
-                        <label><input type="checkbox" name="specializations" value="Insulation" /> Insulation</label>
-                        <label><input type="checkbox" name="specializations" value="Heat Pumps" /> Heat Pumps</label>
-                        <label><input type="checkbox" name="specializations" value="Boiler Replacement" /> Boiler Replacement</label>
+                    <label>Article Content</label>
+                    <textarea name="content" rows="10" placeholder="Write your article content here..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Featured Image URL</label>
+                        <input type="url" name="imageUrl" placeholder="https://example.com/image.jpg" />
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>Certifications</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="certifications" value="MCS" /> MCS</label>
-                        <label><input type="checkbox" name="certifications" value="TrustMark" /> TrustMark</label>
-                        <label><input type="checkbox" name="certifications" value="Gas Safe" /> Gas Safe</label>
-                        <label><input type="checkbox" name="certifications" value="PAS 2030" /> PAS 2030</label>
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" name="tags" placeholder="news, politics, breaking" />
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('addSubcontractorModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Add Subcontractor</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal('addArticleModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Article</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- View Lead Modal -->
-    <div id="viewLeadModal" class="modal">
+    <div id="addBlogModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>View Lead Details</h3>
-                <button class="modal-close" onclick="closeModal('viewLeadModal')">×</button>
+                <h3>New Blog Post</h3>
+                <button class="modal-close" onclick="closeModal('addBlogModal')">×</button>
             </div>
-            <div class="lead-details-view">
-                <div class="detail-section">
-                    <h4>Customer Information</h4>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="label">Lead ID:</span>
-                            <span id="viewLeadId"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Name:</span>
-                            <span id="viewLeadName"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Email:</span>
-                            <span id="viewLeadEmail"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Phone:</span>
-                            <span id="viewLeadPhone"></span>
-                        </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Blog Post Title</label>
+                    <input type="text" name="title" required="" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category" required="">
+                            <option value="">Select Category</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Opinion">Opinion</option>
+                            <option value="Journalism">Journalism</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" name="author" value="Callum Smith" required="" />
                     </div>
                 </div>
-                
-                <div class="detail-section">
-                    <h4>Property Information</h4>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="label">Address:</span>
-                            <span id="viewLeadAddress"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Property Type:</span>
-                            <span id="viewLeadPropertyType"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Grant Type:</span>
-                            <span id="viewLeadGrantType"></span>
-                        </div>
+                <div class="form-group">
+                    <label>Blog Excerpt</label>
+                    <textarea name="excerpt" rows="3" placeholder="Brief summary of your blog post..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Blog Content</label>
+                    <textarea name="content" rows="12" placeholder="Write your blog post content here..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Featured Image URL</label>
+                        <input type="url" name="imageUrl" placeholder="https://example.com/image.jpg" />
+                    </div>
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" name="tags" placeholder="blog, personal, journalism" />
                     </div>
                 </div>
-                
-                <div class="detail-section">
-                    <h4>Status Information</h4>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="label">Status:</span>
-                            <span id="viewLeadStatus"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Assigned To:</span>
-                            <span id="viewLeadAssignedTo"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Created Date:</span>
-                            <span id="viewLeadCreatedDate"></span>
-                        </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('addBlogModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Publish Blog Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Article Modal -->
+    <div id="viewArticleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Article Details</h3>
+                <button class="modal-close" onclick="closeModal('viewArticleModal')">×</button>
+            </div>
+            <div class="article-details-view">
+                <div class="article-image">
+                    <img id="viewArticleImage" src="" alt="Article Image" />
+                </div>
+                <div class="article-content">
+                    <h2 id="viewArticleTitle"></h2>
+                    <div class="article-meta">
+                        <span id="viewArticleAuthor"></span>
+                        <span id="viewArticleDate"></span>
+                        <span id="viewArticleCategory"></span>
                     </div>
+                    <div class="article-tags" id="viewArticleTags"></div>
+                    <div class="article-excerpt" id="viewArticleExcerpt"></div>
+                    <div class="article-full-content" id="viewArticleContent"></div>
                 </div>
             </div>
             <div class="modal-actions">
-                <button type="button" class="btn-secondary" onclick="closeModal('viewLeadModal')">Close</button>
-                <button type="button" class="btn-primary" onclick="editCurrentLead()">Edit Lead</button>
+                <button type="button" class="btn-secondary" onclick="closeModal('viewArticleModal')">Close</button>
+                <button type="button" class="btn-primary" onclick="editCurrentArticle()">Edit Article</button>
             </div>
         </div>
     </div>
 
-    <!-- Edit Lead Modal -->
-    <div id="editLeadModal" class="modal">
+    <!-- Edit Article Modal -->
+    <div id="editArticleModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Edit Lead</h3>
-                <button class="modal-close" onclick="closeModal('editLeadModal')">×</button>
+                <h3>Edit Article</h3>
+                <button class="modal-close" onclick="closeModal('editArticleModal')">×</button>
             </div>
-            <form class="modal-form" id="editLeadForm">
-                <input type="hidden" id="editLeadId" name="leadId" />
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" id="editFirstName" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" id="editLastName" required="" />
-                    </div>
+            <form class="modal-form" id="editArticleForm">
+                <input type="hidden" id="editArticleId" name="articleId" />
+                <div class="form-group">
+                    <label>Article Title</label>
+                    <input type="text" name="title" id="editArticleTitle" required="" />
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" id="editEmail" required="" />
+                        <label>Category</label>
+                        <select name="category" id="editArticleCategory" required="">
+                            <option value="">Select Category</option>
+                            <option value="Breaking News">Breaking News</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="World News">World News</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" id="editPhone" required="" />
+                        <label>Author</label>
+                        <input type="text" name="author" id="editArticleAuthor" required="" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Property Address</label>
-                    <input type="text" name="address" id="editAddress" required="" />
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Property Type</label>
-                        <select name="propertyType" id="editPropertyType" required="">
-                            <option value="">Select Property Type</option>
-                            <option value="Flat">Flat</option>
-                            <option value="Semi-detached">Semi-detached</option>
-                            <option value="Detached">Detached</option>
-                            <option value="Terraced">Terraced</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Grant Type</label>
-                        <select name="grantType" id="editGrantType" required="">
-                            <option value="">Select Grant Type</option>
-                            <option value="Solar Panels">Solar Panels</option>
-                            <option value="Insulation">Insulation</option>
-                            <option value="Heat Pump">Heat Pump</option>
-                            <option value="Combined Package">Combined Package</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select name="status" id="editStatus" required="">
-                            <option value="New">New</option>
-                            <option value="Pending Assessment">Pending Assessment</option>
-                            <option value="Approved">Approved</option>
-                            <option value="Work in Progress">Work in Progress</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Rejected">Rejected</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Assigned To</label>
-                        <input type="text" name="assignedTo" id="editAssignedTo" required="" />
-                    </div>
+                    <label>Article Excerpt</label>
+                    <textarea name="excerpt" id="editArticleExcerpt" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Notes</label>
-                    <textarea name="notes" id="editNotes" rows="3"></textarea>
+                    <label>Article Content</label>
+                    <textarea name="content" id="editArticleContent" rows="10"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Featured Image URL</label>
+                        <input type="url" name="imageUrl" id="editArticleImageUrl" />
+                    </div>
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" name="tags" id="editArticleTags" />
+                    </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('editLeadModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Update Lead</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal('editArticleModal')">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Article</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- View Subcontractor Modal -->
-    <div id="viewSubcontractorModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Subcontractor Details</h3>
-                <button class="modal-close" onclick="closeModal('viewSubcontractorModal')">×</button>
-            </div>
-            <div class="subcontractor-details-view">
-                <div class="detail-section">
-                    <h4>Company Information</h4>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="label">Company Name:</span>
-                            <span id="viewSubCompanyName"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Contact Person:</span>
-                            <span id="viewSubContactPerson"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Phone:</span>
-                            <span id="viewSubPhone"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Email:</span>
-                            <span id="viewSubEmail"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h4>Specializations</h4>
-                    <div id="viewSubSpecializations" class="tags-container"></div>
-                </div>
-                
-                <div class="detail-section">
-                    <h4>Certifications</h4>
-                    <div id="viewSubCertifications" class="tags-container"></div>
-                </div>
-                
-                <div class="detail-section">
-                    <h4>Performance</h4>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="label">Rating:</span>
-                            <span id="viewSubRating"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Active Projects:</span>
-                            <span id="viewSubActiveProjects"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Completed Projects:</span>
-                            <span id="viewSubCompletedProjects"></span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">Status:</span>
-                            <span id="viewSubStatus"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button type="button" class="btn-secondary" onclick="closeModal('viewSubcontractorModal')">Close</button>
-                <button type="button" class="btn-primary" onclick="editCurrentSubcontractor()">Edit Subcontractor</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Edit Subcontractor Modal -->
-    <div id="editSubcontractorModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Edit Subcontractor</h3>
-                <button class="modal-close" onclick="closeModal('editSubcontractorModal')">×</button>
-            </div>
-            <form class="modal-form" id="editSubcontractorForm">
-                <input type="hidden" id="editSubId" name="subId" />
-                <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" name="companyName" id="editSubCompanyName" required="" />
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Contact Person</label>
-                        <input type="text" name="contactPerson" id="editSubContactPerson" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" id="editSubPhone" required="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" id="editSubEmail" required="" />
-                </div>
-                <div class="form-group">
-                    <label>Specializations</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="specializations" value="Solar Panels" /> Solar Panels</label>
-                        <label><input type="checkbox" name="specializations" value="Insulation" /> Insulation</label>
-                        <label><input type="checkbox" name="specializations" value="Heat Pumps" /> Heat Pumps</label>
-                        <label><input type="checkbox" name="specializations" value="Boiler Replacement" /> Boiler Replacement</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Certifications</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="certifications" value="MCS" /> MCS</label>
-                        <label><input type="checkbox" name="certifications" value="TrustMark" /> TrustMark</label>
-                        <label><input type="checkbox" name="certifications" value="Gas Safe" /> Gas Safe</label>
-                        <label><input type="checkbox" name="certifications" value="PAS 2030" /> PAS 2030</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Rating</label>
-                        <input type="number" name="rating" id="editSubRating" min="0" max="5" step="0.1" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select name="status" id="editSubStatus" required="">
-                            <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
-                            <option value="Suspended">Suspended</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('editSubcontractorModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Update Subcontractor</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Create Project Modal -->
-    <div id="createProjectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Create New Project</h3>
-                <button class="modal-close" onclick="closeModal('createProjectModal')">×</button>
-            </div>
-            <form class="modal-form" id="createProjectForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Project ID</label>
-                        <input type="text" name="projectId" id="createProjectId" readonly="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Customer</label>
-                        <select name="customerId" id="createProjectCustomer" required="">
-                            <option value="">Select Customer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Project Title</label>
-                    <input type="text" name="projectTitle" id="createProjectTitle" required="" />
-                </div>
-                <div class="form-group">
-                    <label>Work Type</label>
-                    <select name="workType" id="createProjectWorkType" required="">
-                        <option value="">Select Work Type</option>
-                        <option value="Solar Panels">Solar Panels</option>
-                        <option value="Insulation">Insulation</option>
-                        <option value="Heat Pump">Heat Pump</option>
-                        <option value="Combined Package">Combined Package</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Subcontractor</label>
-                        <select name="subcontractorId" id="createProjectSubcontractor" required="">
-                            <option value="">Select Subcontractor</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Start Date</label>
-                        <input type="date" name="startDate" id="createProjectStartDate" required="" />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Estimated Completion</label>
-                        <input type="date" name="estimatedCompletion" id="createProjectEstimatedCompletion" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Budget</label>
-                        <input type="number" name="budget" id="createProjectBudget" min="0" step="0.01" required="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Project Description</label>
-                    <textarea name="description" id="createProjectDescription" rows="3"></textarea>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('createProjectModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Create Project</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Update Project Progress Modal -->
-    <div id="updateProjectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Update Project Progress</h3>
-                <button class="modal-close" onclick="closeModal('updateProjectModal')">×</button>
-            </div>
-            <form class="modal-form" id="updateProjectForm">
-                <input type="hidden" id="updateProjectId" name="projectId" />
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Project ID</label>
-                        <input type="text" id="updateProjectIdDisplay" readonly="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Current Status</label>
-                        <select name="status" id="updateProjectStatus" required="">
-                            <option value="Planning">Planning</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="On Hold">On Hold</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Cancelled">Cancelled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Progress Percentage</label>
-                        <input type="number" name="progress" id="updateProjectProgress" min="0" max="100" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Updated Date</label>
-                        <input type="date" name="updatedDate" id="updateProjectUpdatedDate" required="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Progress Notes</label>
-                    <textarea name="progressNotes" id="updateProjectNotes" rows="3"></textarea>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('updateProjectModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Update Progress</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Assign Project Modal -->
-    <div id="assignProjectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Assign Project to Subcontractor</h3>
-                <button class="modal-close" onclick="closeModal('assignProjectModal')">×</button>
-            </div>
-            <form class="modal-form" id="assignProjectForm">
-                <div class="form-group">
-                    <label>Subcontractor</label>
-                    <input type="text" id="assignProjectSubcontractor" readonly="" />
-                </div>
-                <div class="form-group">
-                    <label>Select Project</label>
-                    <select name="projectId" id="assignProjectSelect" required="">
-                        <option value="">Select Project to Assign</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Assignment Date</label>
-                        <input type="date" name="assignmentDate" id="assignProjectDate" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Expected Start Date</label>
-                        <input type="date" name="expectedStartDate" id="assignProjectExpectedStart" required="" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Assignment Notes</label>
-                    <textarea name="assignmentNotes" id="assignProjectNotes" rows="3"></textarea>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('assignProjectModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Assign Project</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Add User Modal -->
-    <div id="addUserModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Add New User</h3>
-                <button class="modal-close" onclick="closeModal('addUserModal')">×</button>
-            </div>
-            <form class="modal-form" id="addUserForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" name="firstName" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" required="" />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required="" />
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" required="" />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Role</label>
-                        <select name="role" required="">
-                            <option value="">Select Role</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Coordinator">Coordinator</option>
-                            <option value="Viewer">Viewer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Department</label>
-                        <select name="department" required="">
-                            <option value="">Select Department</option>
-                            <option value="Sales">Sales</option>
-                            <option value="Operations">Operations</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Support">Support</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Permissions</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="permissions" value="view_leads" /> View Leads</label>
-                        <label><input type="checkbox" name="permissions" value="edit_leads" /> Edit Leads</label>
-                        <label><input type="checkbox" name="permissions" value="delete_leads" /> Delete Leads</label>
-                        <label><input type="checkbox" name="permissions" value="view_subcontractors" /> View Subcontractors</label>
-                        <label><input type="checkbox" name="permissions" value="edit_subcontractors" /> Edit Subcontractors</label>
-                        <label><input type="checkbox" name="permissions" value="view_reports" /> View Reports</label>
-                        <label><input type="checkbox" name="permissions" value="manage_users" /> Manage Users</label>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('addUserModal')">Cancel</button>
-                    <button type="submit" class="btn-primary">Add User</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Manage Permissions Modal -->
-    <div id="managePermissionsModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Manage User Permissions</h3>
-                <button class="modal-close" onclick="closeModal('managePermissionsModal')">×</button>
-            </div>
-            <div class="permissions-content">
-                <div class="form-group">
-                    <label>Select User</label>
-                    <select id="permissionsUserSelect">
-                        <option value="">Select User</option>
-                        <option value="admin">Admin User</option>
-                        <option value="manager1">Sarah Johnson - Manager</option>
-                        <option value="coordinator1">Mike Wilson - Coordinator</option>
-                    </select>
-                </div>
-                <div class="permissions-grid">
-                    <div class="permission-section">
-                        <h4>Lead Management</h4>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="lead_permissions" value="view_leads" /> View Leads</label>
-                            <label><input type="checkbox" name="lead_permissions" value="create_leads" /> Create Leads</label>
-                            <label><input type="checkbox" name="lead_permissions" value="edit_leads" /> Edit Leads</label>
-                            <label><input type="checkbox" name="lead_permissions" value="delete_leads" /> Delete Leads</label>
-                        </div>
-                    </div>
-                    <div class="permission-section">
-                        <h4>Subcontractor Management</h4>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="sub_permissions" value="view_subcontractors" /> View Subcontractors</label>
-                            <label><input type="checkbox" name="sub_permissions" value="create_subcontractors" /> Create Subcontractors</label>
-                            <label><input type="checkbox" name="sub_permissions" value="edit_subcontractors" /> Edit Subcontractors</label>
-                            <label><input type="checkbox" name="sub_permissions" value="delete_subcontractors" /> Delete Subcontractors</label>
-                        </div>
-                    </div>
-                    <div class="permission-section">
-                        <h4>Project Management</h4>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="project_permissions" value="view_projects" /> View Projects</label>
-                            <label><input type="checkbox" name="project_permissions" value="create_projects" /> Create Projects</label>
-                            <label><input type="checkbox" name="project_permissions" value="edit_projects" /> Edit Projects</label>
-                            <label><input type="checkbox" name="project_permissions" value="delete_projects" /> Delete Projects</label>
-                        </div>
-                    </div>
-                    <div class="permission-section">
-                        <h4>System Access</h4>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="system_permissions" value="view_reports" /> View Reports</label>
-                            <label><input type="checkbox" name="system_permissions" value="export_data" /> Export Data</label>
-                            <label><input type="checkbox" name="system_permissions" value="manage_users" /> Manage Users</label>
-                            <label><input type="checkbox" name="system_permissions" value="system_settings" /> System Settings</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal('managePermissionsModal')">Cancel</button>
-                    <button type="button" class="btn-primary" onclick="savePermissions()">Save Permissions</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script></body></html>
+    <script src="script.js"></script>
+</body>
+</html>
